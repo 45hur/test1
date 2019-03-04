@@ -1,0 +1,12 @@
+
+Droid/bin/
+
+Droid/obj/
+
+iOS/bin/
+
+iOS/obj/
+
+packages/
+
+\.DS_Store
