@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Foundation;
+using System;
 using UIKit;
 
 namespace test1.iOS
@@ -22,6 +23,26 @@ namespace test1.iOS
             AboutTextView.Text = "This app is written in C# and native APIs using the Xamarin Platform. It shares code with its iOS, Android, & Windows versions.";
         }
 
-        partial void ReadMoreButton_TouchUpInside(UIButton sender) => ViewModel.OpenWebCommand.Execute(null);
+        partial void ReadMoreButton_TouchUpInside(UIButton sender)
+        {
+            // create the notification
+            var notification = new UILocalNotification();
+
+            // set the fire date (the date time in which it will fire)
+            notification.FireDate = NSDate.FromTimeIntervalSinceNow(15);
+
+            // configure the alert
+            notification.AlertAction = "SolarWinds Alert";
+            notification.AlertBody = "Something happened!";
+
+            // modify the badge
+            notification.ApplicationIconBadgeNumber = 1;
+
+            // set the sound to be the default sound
+            notification.SoundName = UILocalNotification.DefaultSoundName;
+
+            // schedule it
+            UIApplication.SharedApplication.ScheduleLocalNotification(notification);
+        }
     }
 }
