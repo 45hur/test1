@@ -10,3 +10,7 @@ iOS/obj/
 packages/
 
 \.DS_Store
+
+\.vs/
+
+*.user
